@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="進制変換ツール - 10進数、2進数、8進数、16進数間の変換を簡単に行います。">
+    <meta name="keywords" content="進制変換, 2進数, 8進数, 10進数, 16進数, 数値変換">
+    <title>進制変換ツール | 数値を簡単に変換</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .converter {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .features, .faq, .testimonials {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>進制変換ツール</h1>
+    <p>簡単に数値を変換しましょう</p>
+</header>
+
+<div class="container">
+    <section class="converter">
+        <h2>数値変換</h2>
+        <label for="number">変換する数値を入力してください:</label>
+        <input type="text" id="number" placeholder="例: 1010">
+        
+        <label for="from-base">変換元の進制:</label>
+        <select id="from-base">
+            <option value="2">2進数</option>
+            <option value="8">8進数</option>
+            <option value="10">10進数</option>
+            <option value="16">16進数</option>
+        </select>
+        
+        <label for="to-base">変換先の進制:</label>
+        <select id="to-base">
+            <option value="2">2進数</option>
+            <option value="8">8進数</option>
+            <option value="10">10進数</option>
+            <option value="16">16進数</option>
+        </select>
+        
+        <button onclick="convert()">変換</button>
+        <h3>結果: <span id="result"></span></h3>
+    </section>
+
+    <section class="features">
+        <h2>特徴</h2>
+        <ul>
+            <li>2進数、8進数、10進数、16進数の間で即座に変換可能</li>
+            <li>シンプルで直感的なインターフェース</li>
+            <li>完全無料のオンラインツール</li>
+        </ul>
+    </section>
+
+    <section class="faq">
+        <h2>よくある質問 (FAQ)</h2>
+        <h3>Q1: このツールは無料ですか？</h3>
+        <p>A1: はい、完全に無料でご利用いただけます。</p>
+        <h3>Q2: どの進制に対応していますか？</h3>
+        <p>A2: このツールは、2進数、8進数、10進数、および16進数の間の変換をサポートしています。</p>
+        <h3>Q3: 結果が正確ですか？</h3>
+        <p>A3: はい、正確なアルゴリズムを使用しているため、結果は信頼できます。</p>
+    </section>
+
+    <section class="testimonials">
+        <h2>ユーザーの声</h2>
+        <p>「とても便利です！複雑な計算が簡単にできました。」 - ユーザーA</p>
+        <p>「直感的なインターフェースで使いやすいです。」 - ユーザーB</p>
+        <p>「学生にも最適なツールです！」 - ユーザーC</p>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 進制変換ツール. 全著作権所有.</p>
+</footer>
+
+<script>
+    function convert() {
+        let number = document.getElementById('number').value;
+        let fromBase = parseInt(document.getElementById('from-base').value);
+        let toBase = parseInt(document.getElementById('to-base').value);
+
+        let result = parseInt(number, fromBase).toString(toBase);
+        document.getElementById('result').innerText = result.toUpperCase();
+    }
+</script>
+
+</body>
+</html>
